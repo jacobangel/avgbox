@@ -1,3 +1,16 @@
 #!/usr/bin/env node
 
-require('../lib/command').parse(process.argv);
+var prog = require('../lib/command');
+var avger = require('../lib/avger');
+var mrshl = require('../lib/mrshl');
+
+prog.parse(process.argv);
+
+if (prog.download) {
+  console.log('do dl');
+}
+
+console.log('Downloading');
+console.log('The %s', prog.set);
+
+mrshl.getSet(prog.set);
